@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<!--<script type="text/babel">
+    let { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        hashHistory,
+        Link } = ReactRouter;
+
+    let App = React.createClass({
+        render: function() {
+            return (
+                    <div>
+                        <h1>Simple SPA</h1>
+                        <ul className="header">
+                            <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+                            <li><Link to="/stuff" activeClassName="active">Stuff</Link></li>
+                            <li><Link to="/contact" activeClassName="active">Contact</Link></li>
+                        </ul>
+                        <div className="content">
+                            {this.props.children}
+                        </div>
+                    </div>
+            )
+        }
+    });
+
+    let Home = React.createClass({
+        render: function() {
+            return (
+                    <div>
+                        <h2>HELLO</h2>
+                        <p>Cras facilisis urna ornare ex volutpat, et
+                            convallis erat elementum. Ut aliquam, ipsum vitae
+                            gravida suscipit, metus dui bibendum est, eget rhoncus nibh
+                            metus nec massa. Maecenas hendrerit laoreet augue
+                            nec molestie. Cum sociis natoque penatibus et magnis
+                            dis parturient montes, nascetur ridiculus mus.</p>
+
+                        <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+                    </div>
+            );
+        }
+    });
+
+    let Contact = React.createClass({
+        render: function() {
+            return (
+                    <div>
+                        <h2>GOT QUESTIONS?</h2>
+                        <p>The easiest thing to do is post on
+                            our <a href="http://forum.kirupa.com">forums</a>.
+                        </p>
+                    </div>
+            );
+        }
+    });
+
+    let Stuff = React.createClass({
+        render: function() {
+            return (
+                    <div>
+                        <h2>STUFF</h2>
+                        <p>Mauris sem velit, vehicula eget sodales vitae,
+                            rhoncus eget sapien:</p>
+                        <ol>
+                            <li>Nulla pulvinar diam</li>
+                            <li>Facilisis bibendum</li>
+                            <li>Vestibulum vulputate</li>
+                            <li>Eget erat</li>
+                            <li>Id porttitor</li>
+                        </ol>
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <Router history={hashHistory}>
+                <Route path="/" component={App}>
+                    <IndexRoute component={Home}/>
+                    <Route path="stuff" component={Stuff} />
+                    <Route path="contact" component={Contact} />
+                </Route>
+            </Router>,
+        document.getElementById('example')
+    );
+</script>-->
+
+<script type="text/babel">
+    let { Router,
+        Route,
+        IndexRoute,
+        IndexLink,
+        hashHistory,
+        Link } = ReactRouter;
+
+    let App = React.createClass({
+        render : function () {
+            return(
+                <div>
+                    <h1>Simple SPA</h1>
+                    <ul className="header">
+                        <li><IndexLink  to="/" activeClassName="active">Home</IndexLink ></li>
+                        <li><Link to="/stuff" activeClassName="active">Stuff</Link></li>
+                        <li><Link to="/contact" activeClassName="active">Contact</Link></li>
+                    </ul>
+                    <div className="content">
+                        {this.props.children}
+                    </div>
+                </div>
+            );
+        } 
+    });
+
+    let Home = React.createClass({
+        render : function () {
+            return(
+                <div>
+                    <h2>HELLO</h2>
+                    <p>The easiest way to get started with React is to use this Hello World example code on CodePen. </p>
+                    <p>You don’t need to install anything; you can just open it in another tab and follow along as we go through examples. </p>
+                    <p>If you’d rather use a local development environment, check out the Installation page.</p>
+                </div>
+            );
+        }
+    });
+
+    let Stuff = React.createClass({
+        render: function() {
+            return ( <div>
+                        <h2>STUFF</h2>
+                        <p>Mauris sem velit, vehicula eget sodales vitae, rhoncus eget sapien:</p>
+                        <ol>
+                            <li>Nulla pulvinar diam</li>
+                            <li>Facilisis bibendum</li>
+                            <li>Vestibulum vulputate</li>
+                            <li>Eget erat</li>
+                            <li>Id porttitor</li>
+                        </ol>
+                    </div>
+            );
+        }
+    });
+
+    let Contact = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <h2>GOT QUESTIONS?</h2>
+                    <p>The easiest thing to do is post on our
+                        <a href="http://forum.kirupa.com">forums</a>.
+                    </p>
+                </div>
+            );
+        }
+    });
+
+
+
+    ReactDOM.render(
+        <Router>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="stuff" component={Stuff} />
+                <Route path="contact" component={Contact} />
+            </Route>
+        </Router>,
+        document.getElementById('example')
+    );
+</script>
+
+</body>
+</html>

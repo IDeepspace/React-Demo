@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        {/*1 . 创建组件，为组件指定属性，处理子元素*/}
+        {/*var Buttonify = React.createClass({
+            render: function() { 
+                return ( 
+                    <div>
+                        <button type={this.props.behavior}>{this.props.children}</button>
+                    </div> 
+                ); 
+            } 
+        }); 
+
+        ReactDOM.render( 
+	        <div>
+		        <Buttonify behavior="Submit">SEND DATA</Buttonify>
+	        </div>, 
+	        document.querySelector("#container") 
+        );*/}
+
+        {/*2 . 创建复杂组件*/}
+        var WebSite = React.createClass({
+            render: function() {
+                return (
+                        <div>
+                            <Name name={this.props.name} />
+                            <Link site={this.props.site} />
+                        </div>
+                );
+            }
+        });
+
+        var Name = React.createClass({
+            render: function() {
+                return (
+                        <h1>{this.props.name}</h1>
+                );
+            }
+        });
+
+        var Link = React.createClass({
+            render: function() {
+                return (
+                        <a href={this.props.site}>
+                            {this.props.site}
+                        </a>
+                );
+            }
+        });
+
+        ReactDOM.render(
+                <WebSite name="React学习笔记" site=" http://www.togoblog.cn" />,
+            document.getElementById('container')
+        );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    {/*这里我们有一个 Shirt 组件，该组件依赖于 Label 组件的输出，而 Label 组件又依赖于 Display 组件的输出*/}
+    var Display = React.createClass({
+        render: function() {
+            return(
+                <div>
+                    <p>{this.props.color}</p>
+                    <p>{this.props.num}</p>
+                    <p>{this.props.size}</p>
+                </div>
+            );
+        }
+    });
+
+    var Label = React.createClass({
+        render: function() {
+            return (
+                <Display color={this.props.color} num={this.props.num} size={this.props.size}/>
+            );
+        }
+    });
+
+    var Shirt = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <Label color={this.props.color} num={this.props.num} size={this.props.size}/>
+                </div> );
+        }
+    });
+
+    {/*----------通过用...props简化--------*/}
+    {/*var Label = React.createClass({
+        render: function() {
+            return ( <Display {...this.props}/> );
+        }
+    });
+
+    var Shirt = React.createClass({
+        render: function() {
+            return (
+                <div>
+                    <Label {...this.props}/>
+                </div>
+            );
+        }
+    });*/}
+
+
+    ReactDOM.render(
+        <div>
+            <Shirt color="steelblue" num="3.14" size="medium" />
+        </div>,
+        document.querySelector("#container")
+    );
+</script>
+
+</body>
+</html>

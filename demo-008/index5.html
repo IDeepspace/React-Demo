@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var Content = React.createClass({
+        render: function() {
+            return  <div>
+                <button onClick = {this.props.updateStateProp}>点我</button>
+                <h4>{this.props.myDataProp}</h4>
+            </div>
+        }
+    });
+    var HelloMessage = React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello World!'};
+        },
+        handleChange: function(event) {
+            this.setState({value: 'React学习笔记'})
+        },
+        render: function() {
+            var value = this.state.value;
+            return <div>
+                <Content myDataProp = {value}
+                         updateStateProp = {this.handleChange}></Content>
+            </div>;
+        }
+    });
+    ReactDOM.render(
+            <HelloMessage />,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>

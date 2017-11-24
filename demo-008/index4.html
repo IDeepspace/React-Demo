@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var HelloMessage = React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello World!'};
+        },
+        handleChange: function(event) {
+            this.setState({value: 'React学习笔记'})
+        },
+        render: function() {
+            var value = this.state.value;
+            return <div>
+                <button onClick={this.handleChange}>点我</button>
+                <h4>{value}</h4>
+            </div>;
+        }
+    });
+    ReactDOM.render(
+            <HelloMessage />,
+        document.getElementById('example')
+    );
+</script>
+</body>
+</html>

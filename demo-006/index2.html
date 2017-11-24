@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    // 父组件
+    var MyContainer = React.createClass({
+        render: function() {
+            return (
+                    <Intermediate text="where is my son?" />
+            );
+        }
+    });
+
+    // 子组件1：中间嵌套的组件
+    var Intermediate = React.createClass({
+        render: function () {
+            return (
+                    <Child text={this.props.text} />
+            );
+        }
+    });
+
+    // 子组件2：子组件1的子组件
+    var Child = React.createClass({
+        render: function () {
+            return (
+                    <span>{this.props.text}</span>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <div>
+                <MyContainer/>
+            </div>,
+        document.querySelector("#container")
+    );
+</script>
+</body>
+</html>
